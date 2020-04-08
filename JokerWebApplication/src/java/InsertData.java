@@ -127,8 +127,9 @@ public class InsertData extends HttpServlet {
                     + "    </body> \n"
                     + "\n"
                     + "</html>");
+	    //close the connection
+	    DBConn.close(); 
             ToDB.closeConn();
-            DBConn.close(); //close the connection
         } catch (java.lang.Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();
@@ -216,8 +217,9 @@ public class InsertData extends HttpServlet {
 
                 }
                 //close connection
+		DBConn.close();
                 ToDB.closeConn();
-                DBConn.close();
+                
             } catch (java.lang.Exception e) {
                 System.out.println("Exception: " + e);
                 e.printStackTrace();
