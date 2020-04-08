@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Joker Services</title>
+        <link rel="stylesheet" href = "style.css">
+        <link rel="shortcut icon" href="images/jokeicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Joke, Jokes, Joker, Joker Services, Funny Content">
+        <meta name="author" content="Jason Chan, Nathan Villajuan, Marcos Perez, Danny Torres">
+        <meta name="description" content="Welcome to Joker Services!">
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+            <header>Joker Services</header>
+
+
+            <main> 
+
+                <form name = "JokerForm"
+                      action="./InsertData"
+                      method="post" 
+                      >
+
+                    <label for="Name">Enter Name: </label>
+                    <input type="text" name ="Name"  id="Name">
+
+                    <div class ="formspace"></div>
+
+
+
+                    <div style="text-align: center"> 
+                        <label for="Joke">Please enter your joke below.</label></div>
+                    <textarea rows="4" cols="50" name="Joke" id = "Joke"></textarea>
+                    <div class ="formspace"></div>
+
+                    <input type="submit" value="Submit">
+
+                </form>
+
+                <div style="text-align: center">            
+                    <a id ="addlink" href = "index.jsp">Return to Home Page</a>
+                </div>
+
+
+            </main>
+
+
+            <footer><small><em>
+                        Copyright 2020 Joker Services<br>
+
+                    </em></small></footer>
+
+        </div>
+
+    </body> 
+
+</html>
