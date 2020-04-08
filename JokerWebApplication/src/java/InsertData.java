@@ -71,6 +71,7 @@ public class InsertData extends HttpServlet {
                     NameList.add("Invalid JokerID VALUE(" + JokerIDList[i] + "): Name not found!");
                 }
                 stmt.close();
+                
             }
 
             //output html
@@ -126,7 +127,7 @@ public class InsertData extends HttpServlet {
                     + "    </body> \n"
                     + "\n"
                     + "</html>");
-
+            ToDB.closeConn();
             DBConn.close(); //close the connection
         } catch (java.lang.Exception e) {
             System.out.println("Exception: " + e);
@@ -214,7 +215,8 @@ public class InsertData extends HttpServlet {
                             + "</b></body></html>");
 
                 }
-                checkExist.close();
+                //close connection
+                ToDB.closeConn();
                 DBConn.close();
             } catch (java.lang.Exception e) {
                 System.out.println("Exception: " + e);
