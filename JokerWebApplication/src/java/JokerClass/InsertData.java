@@ -1,4 +1,4 @@
-package JavaClasses;
+package JokerClass;
 
 
 import java.io.IOException;
