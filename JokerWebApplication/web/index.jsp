@@ -9,6 +9,7 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
+<%@ page import="JavaClasses.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,11 +54,9 @@
                         <th>Joke</th>
                     </tr>
 
-                    <% //connect to db using windows login
-                        String URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=JokerDB;integratedSecurity=true;";
-                        Connection connection = null;
-                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); //sqljdbc4
-                        connection = DriverManager.getConnection(URL);
+                    <% //connect to db 
+                        DBConnection ToDB = new DBConnection(); 
+                        Connection connection = ToDB.openConn(); //Open the connection
                         Statement stmt = connection.createStatement();
                         String query = "SELECT * FROM JokerTable ORDER BY Date"; //Get jokes and order by date. 
                         ResultSet rslt = stmt.executeQuery(query);
@@ -70,9 +69,8 @@
                     <% } %>
                 </table>
                 <% //close connections
-                    rslt.close();
-                    stmt.close();
                     connection.close();
+                    ToDB.closeConn();
                 %>
                
                 <div style="text-align: center">            
