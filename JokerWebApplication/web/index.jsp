@@ -36,7 +36,7 @@
 
                     <label for="JokerID">Joke IDs: </label>
                     <input type="text" name ="JokerID"  id="JokerID">
-                    
+
                     <div class ="formspace"></div>
                     <input type="submit" value="Submit">
                     <div class ="formspace"></div>
@@ -46,23 +46,23 @@
                 <h1 align="center">All Jokes in Database</h1>
                 <table>
                     <tr>
-                       
+
                         <th>Date Created</th>
-                      
+
                         <th>Joke</th>
                     </tr>
 
                     <% //connect to db 
-                        DBConnection ToDB = new DBConnection(); 
+                        DBConnection ToDB = new DBConnection();
                         Connection connection = ToDB.openConn(); //Open the connection
                         Statement stmt = connection.createStatement();
                         String query = "SELECT * FROM JokerTable ORDER BY Date"; //Get jokes and order by date. 
                         ResultSet rslt = stmt.executeQuery(query);
-                        while (rslt.next()) {                                                  
+                        while (rslt.next()) {
                     %>
                     <tr>                   
-                    <td><%=rslt.getString("Date") %></td>                   
-                    <td><%=rslt.getString("Joke") %></td>
+                        <td><%=rslt.getString("Date")%></td>                   
+                        <td><%=rslt.getString("Joke")%></td>
                     </tr>
                     <% } %>
                 </table>
@@ -70,12 +70,12 @@
                     connection.close();
                     ToDB.closeConn();
                 %>
-               
+
                 <div style="text-align: center">            
                     <a id ="addlink" href = "addjoke.html">Add Joke</a>
                 </div>
-                
-                
+
+
 
 
             </main>
@@ -83,7 +83,7 @@
 
             <footer><small><em>
                         Copyright 2020 Joker Services<br>
-                        
+
                     </em></small></footer>
 
         </div>
