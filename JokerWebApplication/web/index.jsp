@@ -4,6 +4,7 @@
     Author     : Jason
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -52,24 +53,19 @@
                         <th>Joke</th>
                     </tr>
 
-                    <% //connect to db 
-                        DBConnection ToDB = new DBConnection();
-                        Connection connection = ToDB.openConn(); //Open the connection
-                        Statement stmt = connection.createStatement();
-                        String query = "SELECT * FROM JokerTable ORDER BY Date"; //Get jokes and order by date. 
-                        ResultSet rslt = stmt.executeQuery(query);
-                        while (rslt.next()) {
+                    <% 
+                    Joker joke = new Joker();
+                    ArrayList<String> date_list = joke.getAllJokes("Date");
+                    ArrayList<String> joke_list = joke.getAllJokes("Joke");
+                    for(int i = 0; i < date_list.size(); i++){
                     %>
                     <tr>                   
-                        <td><%=rslt.getString("Date")%></td>                   
-                        <td><%=rslt.getString("Joke")%></td>
+                        <td><%=date_list.get(i)%></td>                   
+                        <td><%=joke_list.get(i)%></td>
                     </tr>
-                    <% } %>
+                    <%}%>
                 </table>
-                <% //close connections
-                    connection.close();
-                    ToDB.closeConn();
-                %>
+           
 
                 <div style="text-align: center">            
                     <a id ="addlink" href = "addjoke.html">Add Joke</a>

@@ -72,7 +72,6 @@ public class InsertData extends HttpServlet {
                     DateList.add("Invalid JokerID VALUE(" + JokerIDList[i] + "): Date not found!");
                     NameList.add("Invalid JokerID VALUE(" + JokerIDList[i] + "): Name not found!");
                 }
-                stmt.close();
                 
             }
 
