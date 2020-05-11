@@ -67,7 +67,7 @@
                 </table>
            
 
-                <div style="text-align: center">            
+                <div align = "center">            
                     <a id ="addlink" href = "addjoke.html">Add Joke</a>
                 </div>
 
